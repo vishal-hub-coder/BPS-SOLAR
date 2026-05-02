@@ -27,7 +27,7 @@ const HeroSection = () => {
 
         {/* Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row gap-4">
-          <button className="bg-green-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-green-500 hover:scale-105 transition duration-300">
+          <button className="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-green-500 hover:scale-105 transition duration-300">
             GET FREE CONSULTATION
           </button>
 
