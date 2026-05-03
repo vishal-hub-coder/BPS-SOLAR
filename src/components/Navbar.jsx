@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Zap, Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
+import logos from "../assets/logos.jpeg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,15 +24,9 @@ const Navbar = () => {
         <div className="flex items-center h-20">
           {/* Logo */}
           <div className="flex justify-start">
-            <div className="flex items-center space-x-3">
-              <Zap className="h-10 w-10 text-green-500" />
-              <Link
-                to="/"
-                className="text-2xl md:text-3xl font-bold text-gray-800 hover:text-green-600 transition-colors tracking-wide"
-              >
-                BPS Renewables Pvt Ltd
-              </Link>
-            </div>
+            <Link to="/">
+              <img src={logos} alt="BPS Renewables Logo" className="h-20 " />
+            </Link>
           </div>
 
           {/* Desktop Nav Links */}
