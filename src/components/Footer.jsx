@@ -1,4 +1,5 @@
 import React from 'react'
+import logos from "../assets/logos.jpeg";
 import './Footer.css'
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-content">
         <div className="footer-column">
-          <div className="logo">BPS Renewables Pvt Ltd</div>
+          <div className="logo"><img src={logos} alt="BPS Renewables Logo" className="h-20 " /></div>
           <p>BPS Renewables Pvt Ltd is a leading solar EPC company delivering reliable and cost-effective solar solutions across India.</p>
           <div className="social-icons">
             <a href="#" className="social-icon" aria-label="LinkedIn">
