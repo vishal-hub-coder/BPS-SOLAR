@@ -9,7 +9,7 @@ import ContactUS from '../page/ContactUS'
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <HeroSection/>
       <About/>
       <Services/>
