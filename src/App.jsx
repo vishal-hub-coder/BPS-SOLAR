@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from "react-helmet-async";
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <div className={isDark ? 'dark' : ''}>
+      <HelmetProvider>
       <BrowserRouter>
         <Navbar isDark={isDark} toggleDarkMode={toggleDarkMode} />
 
@@ -34,6 +36,7 @@ const App = () => {
 
         {/* <Footer /> */}
       </BrowserRouter>
+      </HelmetProvider>
     </div>
   )
 }

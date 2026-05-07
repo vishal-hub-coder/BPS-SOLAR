@@ -31,12 +31,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200 w-full">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200 w-full "  aria-label="Main navigation for BPS Solar - Solar Panel Installation Company in Faridabad">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20 w-full">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/">
+            <Link to="/" aria-label="BPS Solar Home - Solar Panel Installation Faridabad">
               <img src={logos} alt="BPS Renewables Logo" className="h-16 md:h-20" />
             </Link>
           </div>
@@ -47,6 +47,7 @@ const Navbar = () => {
               <Link
                 key={link.to}
                 to={link.to}
+                 title="Solar Company in Faridabad - BPS Solar Home"
                 className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-300 relative group"
               >
                 {link.label}
@@ -63,6 +64,7 @@ const Navbar = () => {
             </div>
             <Link
               to="/contact"
+              title="About BPS Solar - Trusted Solar EPC Company Haryana"
               className="bg-yellow-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-yellow-600 transition-colors duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
             >
               GET A QUOTE
@@ -97,6 +99,7 @@ const Navbar = () => {
           <div className="flex justify-end p-4">
             <button
               onClick={toggleMenu}
+              title="Solar Panel Installation Services Faridabad NCR"
               className="p-2 rounded-md text-gray-700 hover:text-green-600 hover:bg-gray-100 transition-colors duration-300"
             >
               <X size={24} />
@@ -109,13 +112,16 @@ const Navbar = () => {
                 to={link.to}
                 className="block text-gray-700 hover:text-green-600 font-medium py-2 border-b border-gray-200 last:border-b-0 transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
+                title="Completed Solar Projects in Faridabad & Haryana"
               >
                 {link.label}
               </Link>
             ))}
             <div className="flex items-center space-x-2 py-2">
               <Phone className="h-5 w-5 text-gray-700" />
-              <span className="text-gray-700 font-medium">+91 99999 12345</span>
+              <span className="text-gray-700 font-medium" title="Call BPS Solar Faridabad">
+  +91 99999 12345
+</span>
             </div>
             <Link
               to="/contact"

@@ -6,10 +6,24 @@ import Project from '../page/Project'
 import WhyUs from '../page/WhyUs'
 import Blog from '../page/Blog'
 import ContactUS from '../page/ContactUS'
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <div className="w-full overflow-x-hidden">
+
+      <Helmet>
+        <title>BPS Solar | Best Solar Company in Faridabad</title>
+        <meta
+          name="description"
+          content="Top solar EPC company in Faridabad providing rooftop solar installation within 50 km radius including Gurgaon & Delhi NCR."
+        />
+        <meta
+          name="keywords"
+          content="solar company Faridabad, BPS solar, rooftop solar NCR, solar installation Haryana"
+        />
+      </Helmet>
+
       <HeroSection/>
       <About/>
       <Services/>
@@ -18,7 +32,7 @@ const Home = () => {
       <Blog/>
       <ContactUS/>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
