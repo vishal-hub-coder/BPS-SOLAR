@@ -25,8 +25,9 @@ const Navbar = () => {
     { to: '/about', label: 'ABOUT US' },
     { to: '/services', label: 'SERVICES' },
     { to: '/project', label: 'PROJECTS' },
-    { to: '/why-us', label: 'WHY US' },
+    { to: '/gallery', label: 'GALLERY' },
     { to: '/blog', label: 'BLOG' },
+    { to: '/faq', label: 'FAQ' },
     { to: '/contact', label: 'CONTACT' },
   ];
 

@@ -1,4 +1,4 @@
-import heroImage from "../assets/heroSectionImage.jpg";
+import heroImage from "../assets/HomePageFirst.jpeg";
 import { Helmet } from "react-helmet-async";
 
 const HeroSection = () => {
@@ -33,45 +33,34 @@ const HeroSection = () => {
       {/* Content Wrapper */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
 
-        {/* SEO-friendly keyword-rich label */}
-        <span
-          className="text-green-400 tracking-widest text-xs sm:text-sm md:text-base"
-          title="Solar Energy Solutions Faridabad Haryana"
-        >
-          POWERING A SUSTAINABLE TOMORROW IN FARIDABAD & NCR
-        </span>
-
-        {/* H1 SEO FIX (IMPORTANT) */}
-        <h1
-          className="mt-4 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl"
-          title="Best Solar Panel Installation Company in Faridabad Haryana"
-        >
-          Engineering Clean Energy Infrastructure with BPS Solar
+        {/* Main H1 Heading */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
+          Best Solar Company in{" "}
+          <span className="text-yellow-400">Faridabad</span>
         </h1>
 
-        <p className="mt-4 text-gray-300 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed">
-          End-to-End solar EPC solutions for industries, businesses and homes across
-          Faridabad, Gurgaon and Delhi NCR within 50 km radius.
-        </p>
+        {/* H2 Subheading */}
+        <h2 className="text-xl md:text-2xl text-gray-200 max-w-3xl mb-6">
+          Leading solar panel installation EPC company in Faridabad within 50 km radius.
+          Affordable rooftop solar solutions for homes and industries in Haryana NCR.
+        </h2>
 
-        {/* Buttons */}
+        {/* CTA Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row gap-4">
-
-          {/* SEO CTA Button */}
-          <button
-            className="w-full sm:w-auto bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-green-500 hover:scale-105 transition duration-300"
-            title="Get Free Solar Consultation in Faridabad"
+          <a
+            href="/contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold text-lg rounded-lg transition-colors duration-300 shadow-lg"
+            aria-label="Get Free Solar Consultation"
           >
-            GET FREE SOLAR CONSULTATION
-          </button>
-
-          <button
-            className="w-full sm:w-auto border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black hover:scale-105 transition duration-300"
-            title="View Solar Installation Projects Haryana NCR"
+            Get Free Solar Consultation
+          </a>
+          <a
+            href="/services"
+            className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white hover:bg-white hover:text-black text-white font-semibold text-lg rounded-lg transition-all duration-300"
+            aria-label="View Our Solar Services"
           >
-            View Our Solar Projects
-          </button>
-
+            Our Solar Services
+          </a>
         </div>
 
       </div>

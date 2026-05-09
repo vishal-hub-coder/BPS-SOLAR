@@ -12,6 +12,7 @@ import WhyUs from './page/WhyUs'
 import Blog from './page/Blog'
 import Home from './components/Home'
 import ContactUS from './page/ContactUS'
+import FAQ from './page/FAQ'
 
 const App = () => {
   const [isDark, setIsDark] = useState(false);
@@ -29,9 +30,10 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/project" element={<Project />} />
-          <Route path="/why-us" element={<WhyUs />} />
+          <Route path="/gallery" element={<WhyUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path='/contact' element={<ContactUS/>}/>
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
 
         {/* <Footer /> */}
