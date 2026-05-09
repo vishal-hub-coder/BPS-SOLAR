@@ -86,10 +86,10 @@ const ContactUS = () => {
   ];
 
   const quickContacts = [
-    { icon: <PhoneCall size={40} />, title: 'Call Us', desc: '+91 98765 43210', action: 'tel:+919876543210' },
-    { icon: <Mail size={40} />, title: 'Email Us', desc: 'info@bpsrenewables.com', action: 'mailto:info@bpsrenewables.com' },
+    { icon: <PhoneCall size={40} />, title: 'Call Us', desc: '+91-9015901566', action: 'tel:+919015901566' },
+    { icon: <Mail size={40} />, title: 'Email Us', desc: 'info@bpskiransolar.com', action: 'mailto:info@bpskiransolar.com' },
     { icon: <MessageSquare size={40} />, title: 'Live Chat', desc: 'Chat with experts', action: '#' },
-    { icon: <MessageCircle size={40} />, title: 'WhatsApp', desc: '+91 98765 43210', action: 'https://wa.me/919876543210' }
+    { icon: <MessageCircle size={40} />, title: 'WhatsApp', desc: '+91-7011800332', action: 'https://wa.me/917011800332' }
   ];
 
   return (
@@ -109,7 +109,7 @@ const ContactUS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Get in Touch With Solar Experts
+            Get In Touch
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl mb-8"
@@ -117,7 +117,7 @@ const ContactUS = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We are here to help you switch to clean energy
+            Connect with us today—reach out for support, inquiries, or collaboration, and let's start a meaningful conversation together.
           </motion.p>
           <motion.button
             className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -243,26 +243,34 @@ const ContactUS = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
+              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Contact Info</h2>
               <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
                   <MapPin className="text-green-500 mr-3" size={24} />
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white">Our Address</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">Plot No. 123, Sector 27, Faridabad, Haryana - 121003</p>
+                <p className="text-gray-600 dark:text-gray-300">Plot No. RE-8, 1st Floor, JM Business Complex, IMT Industrial Area, Sector-69, Faridabad, Haryana 121004</p>
               </div>
               <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
                   <Phone className="text-green-500 mr-3" size={24} />
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white">Phone Number</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">+91 98765 43210</p>
+                <p className="text-gray-600 dark:text-gray-300">+91-9015901566, +91-7011800332</p>
+              </div>
+              <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex items-center mb-4">
+                  <Phone className="text-green-500 mr-3" size={24} />
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">Landline Number</h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300">0129-4086317</p>
               </div>
               <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
                   <Mail className="text-green-500 mr-3" size={24} />
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white">Email Address</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">info@bpsrenewables.com</p>
+                <p className="text-gray-600 dark:text-gray-300">info@bpskiransolar.com</p>
               </div>
               <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
@@ -297,7 +305,7 @@ const ContactUS = () => {
             ></iframe>
             <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
               <h3 className="text-lg font-bold text-gray-800 dark:text-white">Visit Our Office</h3>
-              <p className="text-gray-600 dark:text-gray-300">Plot No. 123, Sector 27, Faridabad</p>
+              <p className="text-gray-600 dark:text-gray-300">Plot No. RE-8, IMT Industrial Area, Sector-69, Faridabad</p>
             </div>
           </motion.div>
         </div>
