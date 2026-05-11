@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from "react-helmet-async";
 import {
   FaBolt,
@@ -6,30 +5,28 @@ import {
   FaMapMarkerAlt,
   FaClock,
   FaSolarPanel,
-  FaBuilding,
-  FaFileAlt,
-  FaCog,
   FaLightbulb,
-  FaRocket,
   FaHandshake,
   FaChartLine,
   FaNetworkWired,
   FaTools,
+  FaBatteryFull,
+  FaChargingStation,
 } from "react-icons/fa";
 
 const stats = [
   {
-    value: "50+ MW",
+    value: "100+ MW",
     label: "Installed Capacity",
     icon: <FaBolt className="text-yellow-400 text-3xl" />,
   },
   {
-    value: "100+",
-    label: "Happy Clients",
+    value: "200+",
+    label: "Projects Completed",
     icon: <FaUsers className="text-green-400 text-3xl" />,
   },
   {
-    value: "15+",
+    value: "20+",
     label: "States Pan India",
     icon: <FaMapMarkerAlt className="text-yellow-400 text-3xl" />,
   },
@@ -42,61 +39,61 @@ const stats = [
 
 const services = [
   {
-    title: "Solar EPC Solutions",
+    title: "Solar Power Infrastructure",
     description:
-      "End-to-end engineering, procurement and construction of solar power plants.",
+      "Ground-mounted and rooftop solar EPC solutions for industrial, commercial, and utility-scale applications.",
     icon: <FaSolarPanel className="text-3xl text-gray-600" />,
   },
   {
-    title: "Rooftop Solar (Industrial & Commercial)",
+    title: "Energy Storage Systems (ESS)",
     description:
-      "High-performance rooftop solar systems for industries and commercial buildings.",
-    icon: <FaBuilding className="text-3xl text-gray-600" />,
+      "Advanced battery storage solutions to maximize renewable energy utilization and grid stability.",
+    icon: <FaBatteryFull className="text-3xl text-gray-600" />,
   },
   {
-    title: "Net Metering & Approvals",
+    title: "EV Charging Infrastructure",
     description:
-      "Complete assistance in approvals, net metering and documentation support.",
-    icon: <FaFileAlt className="text-3xl text-gray-600" />,
+      "Comprehensive electric vehicle charging solutions for commercial and public infrastructure.",
+    icon: <FaChargingStation className="text-3xl text-gray-600" />,
   },
   {
-    title: "Operations & Maintenance",
+    title: "Electrical & Industrial Infrastructure",
     description:
-      "Reliable O&M services to ensure maximum performance and system uptime.",
-    icon: <FaCog className="text-3xl text-gray-600" />,
+      "Complete electrical infrastructure solutions including transmission and power distribution.",
+    icon: <FaNetworkWired className="text-3xl text-gray-600" />,
   },
 ];
 
 const values = [
   {
-    title: "Sustainability Focus",
-    description: "Harnessing the infinite power of the sun to create clean, renewable energy for a greener tomorrow.",
-    icon: <FaLightbulb className="text-4xl text-yellow-500" />,
+    title: "Engineering Excellence",
+    description: "Delivering high-quality projects with uncompromising standards of safety, reliability, and execution excellence.",
+    icon: <FaTools className="text-4xl text-yellow-500" />,
   },
   {
-    title: "Innovation Driven",
-    description: "Embracing the latest solar technologies and rapid deployment innovations for better quality and lower costs.",
-    icon: <FaRocket className="text-4xl text-blue-500" />,
+    title: "Innovation & Sustainability",
+    description: "Building future-ready technologies and sustainable energy ecosystems for a cleaner tomorrow.",
+    icon: <FaLightbulb className="text-4xl text-blue-500" />,
   },
   {
-    title: "Customer Trust",
-    description: "Building lasting relationships through transparent processes, quality standards, and reliable service delivery.",
+    title: "Integrity & Transparency",
+    description: "Building long-term partnerships through trust, performance, and responsible business practices.",
     icon: <FaHandshake className="text-4xl text-green-500" />,
   },
   {
-    title: "High ROI",
-    description: "Cost-effective investment returns through our unique Co-Developer approach for maximum financial benefits.",
+    title: "Quality & Reliability",
+    description: "Creating reliable energy ecosystems that support industrial growth and energy independence.",
     icon: <FaChartLine className="text-4xl text-purple-500" />,
   },
 ];
 
 const scopeItems = [
-  "Engineering Excellence & Design",
-  "Procurement & Supply Chain",
-  "Project Management & Execution",
-  "Commissioning & Handover",
-  "Net Metering & Regulatory Approvals",
-  "Operations & Maintenance Support",
+  "Solar Power Infrastructure",
+  "Energy Storage Systems (ESS)",
+  "EV Charging Infrastructure",
+  "Electrical & Industrial Infrastructure",
+  "Smart & Sustainable Energy Solutions",
+  "Operation & Maintenance Services",
   "Transmission & Power Distribution",
   "Consulting & Advisory Services",
 ];
@@ -106,14 +103,14 @@ const About = () => {
     <div className="w-full overflow-hidden">
       {/* SEO Meta Tags */}
       <Helmet>
-        <title>About BPS Kiran Solar | Leading Solar EPC Company in Faridabad</title>
+        <title>About BPS Renewables | Leading Clean Energy Infrastructure Company in India</title>
         <meta
           name="description"
-          content="BPS Kiran Solar - established 2017, largest solar developer & EPC management company in Faridabad. Serving 15+ states with 50+ MW installed capacity."
+          content="BPS Renewables Pvt Ltd - Clean energy infrastructure company delivering solar power, energy storage, EV charging, and electrical infrastructure solutions across India."
         />
         <meta
           name="keywords"
-          content="BPS Kiran Solar, solar EPC company Faridabad, solar developer India, rooftop solar, ground mounted solar, National Solar Mission"
+          content="BPS Renewables, solar EPC company India, renewable energy infrastructure, solar power, energy storage systems, EV charging, electrical infrastructure"
         />
       </Helmet>
 
@@ -142,39 +139,28 @@ const About = () => {
             {/* Left - Text Content */}
             <div className="animate-fadeInUp">
               <span className="text-green-600 font-semibold tracking-wider text-sm uppercase">
-                WELCOME TO BPS KIRAN SOLAR SOLUTION
+                WELCOME TO BPS RENEWABLES
               </span>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-4 mb-6 leading-tight">
-                One of the Largest Solar Developer & EPC Management Company
+                Building Sustainable Energy Infrastructure for Tomorrow
               </h1>
               <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-yellow-500 mb-6 rounded"></div>
 
               <div className="prose prose-lg text-gray-600 space-y-4">
                 <p>
-                  BPS Kiran Solar established in 2017 has been one of the pioneers
-                  in Faridabad and now an established player in Haryana, Punjab,
-                  Uttarakhand, UP, and Rajasthan for Solar EPC services.
+                  BPS Renewables Pvt Ltd is a clean energy infrastructure company committed to accelerating the transition toward a smarter, greener, and more sustainable future.
                 </p>
                 <p>
-                  We have commissioned solar projects for Domestic, Education
-                  Institutions, Commercial establishments, and Industrial sectors
-                  amounting to MW-scale installations.
+                  With a strong foundation built through years of execution experience in the renewable energy sector, BPS Renewables represents the next generation of integrated energy solutions focused on innovation, engineering excellence, and long-term value creation.
                 </p>
                 <p>
-                  With its presence in almost all major corners of the country,
-                  we have significantly contributed to the National Solar Mission.
-                  Apart from being an EPC solution provider, the company is known
-                  for its differentiated and unique "Co-Developer" approach,
-                  offering cost-effective investment returns to private equity
-                  investors.
+                  We develop and deliver advanced renewable energy and electrical infrastructure solutions for industrial, commercial, institutional, and utility-scale applications across India. Our expertise spans the complete lifecycle of projects — from concept, design, engineering, procurement, and execution to commissioning, operations, and long-term performance management.
                 </p>
                 <p className="text-lg font-semibold text-gray-800 border-l-4 border-green-500 pl-4 py-2">
-                  09+ Years Of Experience In Solar Energy
+                  Driven by Engineering Excellence & Innovation
                 </p>
                 <p>
-                  As a result, we have gained the confidence of our customers and
-                  investors in a short stint. The company is on the way to gain
-                  expertise in the Transmission and Power Distribution segment as well.
+                  Driven by a team of experienced engineers, project professionals, and energy specialists, we focus on delivering high-quality projects with uncompromising standards of safety, reliability, efficiency, and execution excellence.
                 </p>
               </div>
             </div>
@@ -197,7 +183,7 @@ const About = () => {
 
                 {/* Floating Icons */}
                 <FaBolt className="absolute top-8 right-8 text-4xl text-yellow-500 animate-bounce" />
-                <FaBuilding className="absolute bottom-8 left-8 text-4xl text-blue-500 animate-bounce delay-300" />
+                <FaSolarPanel className="absolute bottom-8 left-8 text-4xl text-blue-500 animate-bounce delay-300" />
                 <FaChartLine className="absolute top-1/2 right-4 text-4xl text-green-500 animate-bounce delay-500" />
               </div>
             </div>
@@ -205,17 +191,35 @@ const About = () => {
         </div>
       </section>
 
-      {/* ☀️ Our Values / Philosophy */}
+      {/* ☀️ Our Vision & Mission */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Solar Energy Matters
+              Our Vision & Mission
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              The Sun has been around since life existed—the oldest and most
-              powerful source of energy, belonging to everyone equally.
+              Accelerating India's transition to sustainable energy through innovative infrastructure solutions.
             </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+              <p className="text-gray-600 leading-relaxed">
+                To become one of India's most trusted renewable energy infrastructure companies by delivering innovative and sustainable energy solutions that empower industries and contribute toward a cleaner future.
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+              <p className="text-gray-600 leading-relaxed">
+                To build reliable, efficient, and future-focused renewable energy infrastructure through engineering excellence, advanced technology, and customer-centric execution.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">Our Core Values</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -246,14 +250,13 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
           <div className="text-center mb-16">
             <span className="text-green-600 font-semibold tracking-wider text-sm uppercase">
-              FROM IDEA TO REALIZATION
+              Diversified Business Areas
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
-              Scope of Services
+              Our Service Portfolio
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              We provide end-to-end solar energy solutions, handling every aspect
-              from initial concept to final commissioning and beyond.
+              We provide comprehensive renewable energy and electrical infrastructure solutions across multiple domains.
             </p>
           </div>
 
@@ -282,14 +285,13 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
           <div className="text-center mb-12 md:mb-16">
             <span className="text-green-600 font-semibold tracking-wider text-sm uppercase">
-              OUR SOLAR SERVICES
+              OUR SOLUTIONS
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
-              Complete Solar Solutions Under One Roof
+              Complete Energy Infrastructure Solutions
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              We offer comprehensive EPC services for solar projects of all sizes
-              with a focus on quality, safety and long-term performance.
+              We offer integrated renewable energy and electrical infrastructure services with focus on quality, safety and long-term performance.
             </p>
           </div>
 
@@ -325,11 +327,10 @@ const About = () => {
       <section className="py-16 md:py-24 bg-gradient-to-r from-slate-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Go Solar?
+            Ready to Build Sustainable Energy Infrastructure?
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
-            Let's discuss how we can help you harness solar energy for your home,
-            business, or institution.
+            Let's discuss how we can help you accelerate your transition to clean energy solutions.
           </p>
           <a
             href="/contact"
