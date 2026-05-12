@@ -80,8 +80,7 @@ const App = () => {
 
           </Routes>
 
-          {/* Footer */}
-          <Footer />
+          
 
           {/* AI ChatBot */}
           <ChatBot />

@@ -14,9 +14,14 @@ import { motion, AnimatePresence } from "framer-motion";
 const ChatBot = () => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-
   const [typing, setTyping] = useState(false);
 
+
+  const openWhatsApp     = (number) =>{
+    const cleanNumber = number.replace(/\D/g, "")
+    const url = `https://wa.me/91${cleanNumber}`
+    window.open(url,  "_blank");
+  }
   const [messages, setMessages] = useState([
     {
       sender: "bot",
@@ -87,27 +92,46 @@ const ChatBot = () => {
     }, 1200);
   };
 
-  const handleSend = (customMessage = null) => {
-    const finalMessage = customMessage || message;
+const handleSend = (customMessage = null) => {
+  const finalMessage = customMessage || message;
 
-    if (!finalMessage.trim()) return;
+  if (!finalMessage.trim()) return;
 
-    const userMessage = {
-      sender: "user",
-      text: finalMessage,
-    };
+  const userMessage = {
+    sender: "user",
+    text: finalMessage,
+  };
 
-    setMessages((prev) => [...prev, userMessage]);
+  setMessages((prev) => [...prev, userMessage]);
 
-    handleBotReply(finalMessage.toLowerCase());
+  const lowerMsg = finalMessage.toLowerCase();
+
+  // 🔥 WhatsApp trigger logic
+  const phoneMatch = finalMessage.match(/(\d{10})/); // 10 digit number detect
+
+  if (
+    lowerMsg.includes("whatsapp") ||
+    lowerMsg.includes("contact") ||
+    lowerMsg.includes("call") ||
+    phoneMatch
+  ) {
+    const number = phoneMatch ? phoneMatch[0] : "9015901566";
+
+    setTimeout(() => {
+      openWhatsApp(number);
+    }, 500);
 
     setMessage("");
-  };
+    return;
+  }
+
+  handleBotReply(lowerMsg);
+  setMessage("");
+};
 
   return (
     <>
       {/* Floating Button */}
-
       <motion.button
         whileTap={{ scale: 0.9 }}
         whileHover={{
@@ -127,7 +151,6 @@ const ChatBot = () => {
       </motion.button>
 
       {/* Chat Window */}
-
       <AnimatePresence>
         {open && (
           <motion.div
@@ -147,18 +170,18 @@ const ChatBot = () => {
               scale: 0.9,
             }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-24 right-4 sm:right-6 w-[90%] sm:w-[350px] h-[550px] bg-white/90 backdrop-blur-xl rounded-[32px] shadow-[0_25px_80px_rgba(0,0,0,0.25)] overflow-hidden z-50 border border-white/20"
+            className="fixed bottom-24 right-4 sm:right-6 
+            w-[95%] sm:w-[370px] 
+            h-[70vh] sm:h-[520px] 
+            max-h-[700px]
+            bg-white/90 backdrop-blur-xl 
+            rounded-[32px] shadow-[0_25px_80px_rgba(0,0,0,0.25)] 
+            overflow-hidden z-50 border border-white/20
+            flex flex-col"
           >
             {/* Header */}
-
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-emerald-500 to-yellow-400"></div>
-
-              <div className="absolute top-0 left-0 w-full h-full opacity-10">
-                <div className="absolute top-2 left-4 text-6xl font-bold">
-                  ☀️
-                </div>
-              </div>
 
               <div className="relative p-5 text-white flex items-center gap-4">
                 <div className="bg-white/20 p-3 rounded-2xl backdrop-blur-md">
@@ -179,8 +202,7 @@ const ChatBot = () => {
             </div>
 
             {/* Messages */}
-
-            <div className="h-[430px] overflow-y-auto px-4 py-5 bg-gradient-to-b from-gray-50 to-white">
+            <div className="flex-1 overflow-y-auto px-4 py-5 bg-gradient-to-b from-gray-50 to-white">
               <div className="space-y-4">
                 {messages.map((msg, index) => (
                   <motion.div
@@ -212,8 +234,7 @@ const ChatBot = () => {
                   </motion.div>
                 ))}
 
-                {/* Typing Animation */}
-
+                {/* Typing */}
                 {typing && (
                   <div className="flex justify-start">
                     <div className="bg-white border border-gray-100 px-5 py-4 rounded-3xl rounded-bl-md shadow-md flex gap-2">
@@ -229,8 +250,7 @@ const ChatBot = () => {
             </div>
 
             {/* Quick Replies */}
-
-            <div className="px-4 py-2 flex flex-wrap gap-2 bg-white border-t border-gray-100">
+            <div className="px-4 py-3 flex flex-wrap gap-2 bg-white border-t border-gray-100 flex-shrink-0">
               {quickReplies.map((reply, index) => (
                 <button
                   key={index}
@@ -243,8 +263,7 @@ const ChatBot = () => {
             </div>
 
             {/* Bottom Contact */}
-
-            <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-white border-t border-gray-100 flex items-center justify-between text-xs text-gray-600">
+            <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-white border-t border-gray-100 flex items-center justify-between text-xs text-gray-600 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <Phone size={14} />
                 +91-9015901566
@@ -257,8 +276,7 @@ const ChatBot = () => {
             </div>
 
             {/* Input */}
-
-            <div className="p-4 bg-white flex items-center gap-3">
+            <div className="p-4 bg-white flex items-center gap-3 border-t border-gray-100 flex-shrink-0">
               <div className="flex-1 relative">
                 <input
                   type="text"

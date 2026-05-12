@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Mail, Phone, ArrowRight, MessageCircle } from "lucide-react";
 import serv1 from "../assets/projects/service/1.jpg";
@@ -59,7 +60,10 @@ const services = [
   },
 ];
 
-const Services = () => {
+const Services = ({ limit }) => {
+  const displayedServices = limit ? services.slice(0, limit) : services;
+  const showViewMore = limit && services.length > limit;
+
   return (
     <section
       className="py-16 md:py-24 bg-gray-50"
@@ -94,7 +98,7 @@ const Services = () => {
 
         {/* Services Grid - 3 Rows × 2 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service, index) => (
+          {displayedServices.map((service, index) => (
             <div
               key={service.id}
               className="group relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2"
@@ -148,6 +152,18 @@ const Services = () => {
             </div>
           ))}
         </div>
+
+        {showViewMore && (
+          <div className="mt-8 text-center">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+            >
+              View More
+              <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        )}
 
         {/* CTA Banner */}
         <div className="mt-16 md:mt-20 bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-8 md:p-12 text-center">

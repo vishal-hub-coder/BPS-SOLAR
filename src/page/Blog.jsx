@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   Search, Zap, Leaf, Recycle, Wrench,
-  Calendar, User, Tag, ChevronRight
+  Calendar, User, Tag, ChevronRight,ArrowRight 
 } from 'lucide-react';
-const Blog = () => {
+
+const Blog = ({ limit }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -71,7 +73,6 @@ const Blog = () => {
   ];
 
   const categories = ['Solar Tech', 'Installation', 'Benefits', 'Maintenance'];
-  const recentPosts = blogPosts.slice(0, 3);
   const tags = ['solar', 'renewable', 'energy', 'green', 'panel', 'rooftop'];
 
   const features = [
@@ -126,8 +127,6 @@ const Blog = () => {
       </div>
     </div>
   );
-
-
 
   const Hero = () => (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -195,7 +194,17 @@ const Blog = () => {
       <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
         <h3 className="text-lg font-bold mb-4 text-gray-800">Recent Posts</h3>
         <ul className="space-y-4">
-          {recentPosts.map((post) => (
+          {limit ? blogPosts.slice(0, 3).map((post) => (
+            <li key={post.id} className="flex">
+              <img src={post.image} alt={post.title} className="w-16 h-16 object-cover rounded-lg mr-3" />
+              <div>
+                <a href="#" className="text-sm font-semibold hover:text-green-600 transition-colors text-gray-800">
+                  {post.title}
+                </a>
+                <p className="text-xs text-gray-500">{post.date}</p>
+              </div>
+            </li>
+          )) : blogPosts.slice(0, 3).map((post) => (
             <li key={post.id} className="flex">
               <img src={post.image} alt={post.title} className="w-16 h-16 object-cover rounded-lg mr-3" />
               <div>
@@ -245,9 +254,9 @@ const Blog = () => {
     </section>
   );
 
-
-
-
+  // Determine which posts to show based on limit prop
+  const displayedPosts = limit ? blogPosts.slice(0, limit) : blogPosts;
+  const showViewMore = limit && blogPosts.length > limit;
 
   return (
     <div>
@@ -261,11 +270,23 @@ const Blog = () => {
                 {isLoading ? (
                   Array(6).fill().map((_, index) => <SkeletonCard key={index} />)
                 ) : (
-                  blogPosts.filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase())).map((post) => (
+                  displayedPosts.filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase())).map((post) => (
                     <BlogCard key={post.id} post={post} />
                   ))
                 )}
               </div>
+              
+              {showViewMore && (
+                <div className="mt-6 text-center">
+                  <Link
+                    to="/blog"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+                  >
+                    View More
+                    <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              )}
             </div>
             <Sidebar />
           </div>

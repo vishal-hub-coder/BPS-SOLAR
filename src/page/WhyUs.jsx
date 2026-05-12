@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X,ArrowRight  } from 'lucide-react';
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 // commercials 
 import com1 from "../assets/projects/Gallery/commercial/1.jpg";
 import com2 from "../assets/projects/Gallery/commercial/2.jpg";
@@ -55,7 +56,7 @@ const galleryImages = {
   eventBro: [eventBro],
 };
 
-const OurProcess = () => {
+const WhyUs = ({ limit }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -70,6 +71,12 @@ const OurProcess = () => {
     { key: 'industries', label: 'Industries' },
     { key: 'eventBro', label: 'Event Brochure' },
   ];
+
+  // Get images for active filter
+  const allImages = galleryImages[activeFilter];
+  // Determine which images to show based on limit prop
+  const displayedImages = limit ? allImages.slice(0, limit) : allImages;
+  const showViewMore = limit && allImages.length > limit;
 
   return (
     <section
@@ -116,7 +123,7 @@ const OurProcess = () => {
 
           {/* Image Grid - Larger Images */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {galleryImages[activeFilter].map((image, index) => (
+            {displayedImages.map((image, index) => (
               <div
                 key={index}
                 className="group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -137,32 +144,45 @@ const OurProcess = () => {
               </div>
             ))}
           </div>
+          
+          {/* View More Button */}
+          {showViewMore && (
+            <div className="mt-8 text-center">
+              <Link
+                to="/gallery"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+              >
+                View More
+                <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          )}
         </div>
-      </div>
 
-      {/* Modal - Larger image display */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
-        >
-          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={closeModal}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-            >
-              <X size={32} />
-            </button>
-            <img
-              src={selectedImage}
-              alt="Gallery preview"
-              className="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
-            />
+        {/* Modal - Larger image display */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+              <button
+                onClick={closeModal}
+                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+              >
+                <X size={32} />
+              </button>
+              <img
+                src={selectedImage}
+                alt="Gallery preview"
+                className="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 };
 
-export default OurProcess;
+export default WhyUs;

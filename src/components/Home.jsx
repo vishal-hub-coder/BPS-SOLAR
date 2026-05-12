@@ -5,8 +5,8 @@ import Services from '../page/Services'
 import Project from '../page/Project'
 import WhyUs from '../page/WhyUs'
 import Blog from '../page/Blog'
-import ContactUS from '../page/ContactUS'
 import { Helmet } from "react-helmet-async";
+import ContactUS from '../page/ContactUS'
 
 const Home = () => {
   return (
@@ -26,10 +26,10 @@ const Home = () => {
 
       <HeroSection/>
       <About/>
-      <Services/>
-      <Project/>
-      <WhyUs/>
-      <Blog/>
+      <Services limit={3} />
+      <Project limit={3} />
+      <WhyUs limit={3} />
+      <Blog limit={3} />
       <ContactUS/>
     </div>
   );

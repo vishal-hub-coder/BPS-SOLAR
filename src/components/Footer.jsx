@@ -146,7 +146,7 @@ const Footer = () => {
                   RE-8, 2ND FLOOR SEC-69 <br />
                   BALLABGARH <br />
                   JDM BUSINESS TOWER <br />
-                  NEEMKA <br />
+                 
                   FARIDABAD-121004 <br />
                   HARYANA
                 </p>

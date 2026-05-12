@@ -188,10 +188,51 @@ const residentialProjects = [
   },
 ];
 
-const IndustrialSolarShowcase = () => {
+const IndustrialSolarShowcase = ({ limit }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // For preview mode, we only show a simple grid of limited projects
+  if (limit) {
+    const limitedProjects = projects.slice(0, limit);
+    return (
+      <section className="bg-white py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-center text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-6">
+            Our Projects
+          </h2>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {limitedProjects.map((project, projectIndex) => (
+              <div key={projectIndex} className="group relative cursor-pointer overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
+                <img
+                  src={project.images[0]}
+                  alt={`${project.title}`}
+                  className="w-full h-48 md:h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-semibold text-sm bg-black/50 px-3 py-1 rounded-full">
+                    View Details
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-8 text-center">
+            <a
+              href="/project"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+            >
+              View More Projects
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Full mode - show all content
   const openModal = (project, imageIndex) => {
     setSelectedProject(project);
     setCurrentImageIndex(imageIndex);
@@ -281,41 +322,41 @@ const IndustrialSolarShowcase = () => {
           </div>
         ))}
 
-        {projects.map((project, projectIndex) => (
-          <div key={projectIndex} className="mb-16 last:mb-0">
-            <h2 className="text-center text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-6">
-              {project.capacity}, {project.title}, {project.location}
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {project.images.map((image, imageIndex) => (
-                <div
-                  key={imageIndex}
-                  className="group relative cursor-pointer overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:shadow-md"
-                  onClick={() => openModal(project, imageIndex)}
-                >
-                  <img
-                    src={image}
-                    alt={`${project.title} ${imageIndex + 1}`}
-                    className="w-full h-44 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-                </div>
-              ))}
+        <div className="mt-10">
+          {projects.map((project, projectIndex) => (
+            <div key={projectIndex} className="mb-16 last:mb-0">
+              <h2 className="text-center text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-6">
+                {project.capacity}, {project.title}, {project.location}
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {project.images.map((image, imageIndex) => (
+                  <div
+                    key={imageIndex}
+                    className="group relative cursor-pointer overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:shadow-md"
+                    onClick={() => openModal(project, imageIndex)}
+                  >
+                    <img
+                      src={image}
+                      alt={`${project.title} ${imageIndex + 1}`}
+                      className="w-full h-44 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
+      {/* Modal - Larger image display */}
       {selectedProject && (
         <div
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={closeModal}
         >
-          <div
-            className="relative max-w-3xl w-full max-h-[80vh]"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative max-w-3xl w-full max-h-[80vh]" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={closeModal}
               className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors z-10"
