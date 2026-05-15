@@ -42,20 +42,59 @@ const ContactUS = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
+
     setIsLoading(true);
     setError('');
     setSuccess('');
-    // Simulate API call
-    setTimeout(() => {
+
+    const payload = {
+      comId: 136,
+      empId: 10896,
+      customerName: formData.name,
+      customerEmail: formData.email,
+      customerContact: formData.phone,
+      address: formData.service, // ya agar address field add karna ho toh change kar lena
+      remarks: formData.message
+    };
+
+    try {
+      const response = await fetch(
+        "https://erpapi.sapeagleerp.com/api/Customer/save",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-KEY": "sapeeagle-default-api-key-12345"
+          },
+          body: JSON.stringify(payload)
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess("Thank you! Your request has been saved successfully.");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        setError(data?.message || "Something went wrong!");
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    } finally {
       setIsLoading(false);
-      setSuccess('Thank you! We will get back to you soon.');
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    }, 2000);
+    }
   };
 
   const toggleFAQ = (index) => {
@@ -151,86 +190,112 @@ const ContactUS = () => {
               id="contact-form"
             >
               <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-transparent border-2 rounded-xl focus:outline-none focus:border-green-500 transition-all text-gray-800 dark:text-white ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`}
-                    placeholder=" "
-                  />
-                  <label className="absolute left-4 top-3 text-gray-500 dark:text-gray-400 transition-all duration-300 pointer-events-none">
-                    Full Name
-                  </label>
-                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                </div>
-                <div className="relative">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-transparent border-2 rounded-xl focus:outline-none focus:border-green-500 transition-all text-gray-800 dark:text-white ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`}
-                    placeholder=" "
-                  />
-                  <label className="absolute left-4 top-3 text-gray-500 dark:text-gray-400 transition-all duration-300 pointer-events-none">
-                    Email Address
-                  </label>
-                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                </div>
-                <div className="relative">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-transparent border-2 rounded-xl focus:outline-none focus:border-green-500 transition-all text-gray-800 dark:text-white ${errors.phone ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`}
-                    placeholder=" "
-                  />
-                  <label className="absolute left-4 top-3 text-gray-500 dark:text-gray-400 transition-all duration-300 pointer-events-none">
-                    Phone Number
-                  </label>
-                  {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-                </div>
-                <div className="relative">
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-transparent border-2 rounded-xl focus:outline-none focus:border-green-500 transition-all text-gray-800 dark:text-white ${errors.service ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`}
-                  >
-                    <option value="">Select Service Type</option>
-                    <option value="installation">Installation</option>
-                    <option value="maintenance">Maintenance</option>
-                    <option value="consultation">Consultation</option>
-                    <option value="other">Other</option>
-                  </select>
-                  {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
-                </div>
-                <div className="relative">
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className={`w-full px-4 py-3 bg-transparent border-2 rounded-xl focus:outline-none focus:border-green-500 transition-all text-gray-800 dark:text-white resize-none ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}`}
-                    placeholder=" "
-                  ></textarea>
-                  <label className="absolute left-4 top-3 text-gray-500 dark:text-gray-400 transition-all duration-300 pointer-events-none">
-                    Message
-                  </label>
-                  {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-                </div>
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-green-500 to-yellow-500 text-white py-3 rounded-xl font-bold hover:from-green-600 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isLoading ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
+       <form onSubmit={handleSubmit} className="space-y-6">
+
+  {/* Name */}
+  <div className="space-y-1">
+    <label className="text-sm font-semibold ml-1 text-gray-700 dark:text-gray-300">
+      Full Name
+    </label>
+    <input
+      type="text"
+      name="name"
+      value={formData.name}
+      onChange={handleInputChange}
+      placeholder="Enter your full name"
+      className={`w-full px-4 py-3 bg-transparent border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-gray-800 dark:text-white ${
+        errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+      }`}
+    />
+    {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+  </div>
+
+  {/* Email */}
+  <div className="space-y-1">
+    <label className="text-sm font-semibold ml-1 text-gray-700 dark:text-gray-300">
+      Email Address
+    </label>
+    <input
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleInputChange}
+      placeholder="Enter your email"
+      className={`w-full px-4 py-3 bg-transparent border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-gray-800 dark:text-white ${
+        errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+      }`}
+    />
+    {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+  </div>
+
+  {/* Phone */}
+  <div className="space-y-1">
+    <label className="text-sm font-semibold ml-1 text-gray-700 dark:text-gray-300">
+      Phone Number
+    </label>
+    <input
+      type="tel"
+      name="phone"
+      value={formData.phone}
+      onChange={handleInputChange}
+      placeholder="Enter your phone number"
+      className={`w-full px-4 py-3 bg-transparent border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-gray-800 dark:text-white ${
+        errors.phone ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+      }`}
+    />
+    {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+  </div>
+
+  {/* Service */}
+  <div className="space-y-1">
+    <label className="text-sm font-semibold ml-1 text-gray-700 dark:text-gray-300">
+      Service Type
+    </label>
+    <select
+      name="service"
+      value={formData.service}
+      onChange={handleInputChange}
+      className={`w-full px-4 py-3 bg-transparent border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-gray-800 dark:text-white ${
+        errors.service ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+      }`}
+    >
+      <option value="">Select Service Type</option>
+      <option value="installation">On Grid System</option>
+      <option value="maintenance">Off Grid System</option>
+      <option value="consultation">Hybrid System</option>
+      <option value="other">Other</option>
+    </select>
+    {errors.service && <p className="text-red-500 text-sm">{errors.service}</p>}
+  </div>
+
+  {/* Message */}
+  <div className="space-y-1">
+    <label className="text-sm font-semibold ml-1 text-gray-700 dark:text-gray-300">
+      Message
+    </label>
+    <textarea
+      name="message"
+      value={formData.message}
+      onChange={handleInputChange}
+      rows={4}
+      placeholder="Write your message..."
+      className={`w-full px-4 py-3 bg-transparent border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all text-gray-800 dark:text-white resize-none ${
+        errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+      }`}
+    />
+    {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+  </div>
+
+  {/* Submit Button */}
+  <button
+    type="submit"
+    disabled={isLoading}
+    className="w-full bg-gradient-to-r from-green-500 to-yellow-500 text-white py-3 rounded-xl font-bold hover:from-green-600 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    {isLoading ? 'Sending...' : 'Send Message'}
+  </button>
+
+</form>
               {success && <p className="text-green-600 mt-4">{success}</p>}
               {error && <p className="text-red-600 mt-4">{error}</p>}
             </motion.div>
@@ -270,7 +335,7 @@ const ContactUS = () => {
                   <Mail className="text-green-500 mr-3" size={24} />
                   <h3 className="text-xl font-bold text-gray-800 dark:text-white">Email Address</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">info@bpskiransolar.com</p>
+                <p className="text-gray-600 dark:text-gray-300">info@bpsrenewables.com</p>
               </div>
               <div className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
