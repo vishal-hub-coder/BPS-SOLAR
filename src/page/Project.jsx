@@ -20,6 +20,10 @@ import jind6 from "../assets/projects/JINDAL-SUPREAM-INDIA6.jpg";
 
 import karnal1 from "../assets/projects/KARNAL1.jpg";
 import karnal2 from "../assets/projects/KARNAL2.jpg";
+import karnal3 from "../assets/projects/KARNAL3.jpeg";
+import karnal4 from "../assets/projects/KARNAL4.jpeg";
+import karnal5 from "../assets/projects/KARNAL5.jpeg";
+
 
 import mehrulu1 from "../assets/projects/MEHRULU-NEW-DELHI1.jpg";
 import mehrulu2 from "../assets/projects/MEHRULU-NEW-DELHI2.jpg";
@@ -32,6 +36,10 @@ import mohan3 from "../assets/projects/MOHAN3.jpg";
 import panipath1 from "../assets/projects/PANIPATH1.jpg";
 import panipath2 from "../assets/projects/PANIPATH2.jpg";
 import panipath3 from "../assets/projects/PANIPATH3.jpg";
+import panipath4 from "../assets/projects/PANIPATH4.jpg";
+import panipath5 from "../assets/projects/PANIPATH5.jpg";
+import panipath6 from "../assets/projects/PANIPATH6.jpg";
+import panipath7 from "../assets/projects/PANIPATH7.jpg";
 
 import redhu1 from "../assets/projects/REDHU1.jpg";
 import redhu2 from "../assets/projects/REDHU2.jpg";
@@ -42,6 +50,9 @@ import sangam3 from "../assets/projects/SANGAM3.jpg";
 
 import sikandarbad1 from "../assets/projects/SIKANDARBAD1.jpg";
 import sikandarbad2 from "../assets/projects/SIKANDARBAD2.jpg";
+import sikandarbad3 from "../assets/projects/sikandarbad3.jpeg";
+import sikandarbad4 from "../assets/projects/sikandarbad4.jpeg";
+import sikandarbad5 from "../assets/projects/sikandarbad5.jpeg";
 
 import sonipat1 from "../assets/projects/SONIPATH1.jpg";
 import sonipat2 from "../assets/projects/SONIPATH2.jpg";
@@ -49,21 +60,36 @@ import sonipat3 from "../assets/projects/SONIPATH3.jpg";
 
 import service1 from "../assets/projects/service1.jpg";
 
+import Dist1 from "../assets/projects/DIST150KW1.jpeg";
+import Dist2 from "../assets/projects/DIST150KW2.jpeg";
+import Dist3 from "../assets/projects/DIST150KW3.jpeg";
+import Dist4 from "../assets/projects/DIST150KW4.jpeg";
+import Dist5 from "../assets/projects/DIST150KW5.jpeg";
+
+
+import CHOICE1  from "../assets/projects/CHOICE-RESEARCH1.jpeg";
+import CHOICE2  from "../assets/projects/CHOICE-RESEARCH2.jpeg";
+import CHOICE3  from "../assets/projects/CHOICE-RESEARCH3.jpeg";
+
+
+
 // ==================== PROJECTS DATA ====================
 const projects = [
   { title: 'ACCURATE POLYFAB', capacity: '420KW', location: 'PANIPAT', images: [panipath1, panipath2, panipath3] },
   { title: 'LAKSHYA FOODS PRIVATE LIMITED', capacity: '528KW', location: 'JIND', images: [jind1, jind2, jind3, jind4, jind5, jind6] },
-  { title: 'AKASHDEEP FEEDS', capacity: '450KW', location: 'KARNAL', images: [karnal1, karnal2] },
-  { title: 'ECO POLYMER, KHANDARA', capacity: '375KW', location: 'PANIPAT', images: [panipath1, panipath2, panipath3] },
+  { title: 'AKASHDEEP FEEDS', capacity: '450KW', location: 'KARNAL', images: [karnal1, karnal2, karnal3, karnal4, karnal5] },
+  { title: 'ECO POLYMER, KHANDARA', capacity: '375KW', location: 'PANIPAT', images: [panipath1, panipath2, panipath3, panipath4, panipath5, panipath6, panipath7] },
   { title: 'NEWTECH MEDICAL DEVICES', capacity: '300KW', location: 'FARIDABAD, HARYANA', images: [haryana1, haryana2, haryana3] },
   { title: 'INTERARCH BUILDING PRODUCTS PVT LTD', capacity: '50KW', location: 'MEHRAULI, NEW DELHI', images: [mehrulu1, mehrulu2, mehrulu3] },
   { title: 'REDHU HATCHERY', capacity: '200KW', location: 'JIND', images: [redhu1, redhu2] },
   { title: 'ENGPAR INTERNATIONAL PVT LTD', capacity: '650KW', location: 'SAMLPA ROHTAK', images: [engpar1, engpar2, engpar3, engpar4] },
   { title: 'SANGAM INDUSTRY', capacity: '390KW', location: 'BHADURGARH', images: [sangam1, sangam2, sangam3] },
-  { title: 'VRY LOGISTICS PARK LLP', capacity: '400KW', location: 'SIKANDERABAD UP', images: [sikandarbad1, sikandarbad2] },
+  { title: 'VRY LOGISTICS PARK LLP', capacity: '400KW', location: 'SIKANDERABAD UP', images: [sikandarbad1, sikandarbad2, sikandarbad3, sikandarbad4, sikandarbad5] },
   { title: 'JINDAL SUPREME INDIA LIMITED', capacity: '70KW', location: 'NEW DELHI', images: [jind1, jind2, jind3, jind4, jind5, jind6] },
   { title: 'MOHAN RICE MILL', capacity: '200KW', location: 'LADWA KURUKSHETRA', images: [mohan1, mohan2, mohan3] },
   { title: 'SUPREME SHAVER INDIA PRIVATE LIMITED', capacity: '550KW', location: 'SONIPAT', images: [sonipat1, sonipat2, sonipat3] },
+  { title: 'DISTILLERIES', capacity: '150KW', location: 'FARIDABAD', images: [Dist1, Dist2, Dist3, Dist4, Dist5] },
+  { title: 'CHOICE RESEARCH', capacity: '100KW', location: 'FARIDABAD', images: [CHOICE1, CHOICE2, CHOICE3] },
 ];
 
 const institutionalProjects = [
@@ -195,26 +221,50 @@ const IndustrialSolarShowcase = ({ limit }) => {
                 </div>
 
                 {/* All Images Grid - Compact */}
-                <div className="p-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.images.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="relative overflow-hidden rounded-xl cursor-pointer group"
-                        onClick={() => openModal(project, idx)}
-                      >
-                        <img
-                          src={img}
-                          alt={`${project.title} ${idx + 1}`}
-                          className="w-full h-52 object-cover transition-transform group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
-                          <span className="text-white text-xs bg-black/60 px-4 py-1.5 rounded-lg">Click to View</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+           {/* All Images Grid - Compact */}
+<div className="p-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    
+    {project.images.slice(0, 3).map((img, idx) => {
+      const extraImages = project.images.length - 3;
+
+      return (
+        <div
+          key={idx}
+          className="relative overflow-hidden rounded-xl cursor-pointer group"
+          onClick={() => openModal(project, idx)}
+        >
+          <img
+            src={img}
+            alt={`${project.title} ${idx + 1}`}
+            className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
+            <span className="text-white text-xs bg-black/60 px-4 py-1.5 rounded-lg">
+              Click to View
+            </span>
+          </div>
+
+          {/* View More Button */}
+          {idx === 2 && extraImages > 0 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal(project, 0);
+              }}
+              className="absolute bottom-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium shadow hover:bg-white transition"
+            >
+              +{extraImages} View More
+            </button>
+          )}
+        </div>
+      );
+    })}
+
+  </div>
+</div>
               </div>
             ))}
           </div>

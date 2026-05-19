@@ -13,6 +13,7 @@ const Footer = () => {
     { to: '/gallery', label: 'GALLERY' },
     { to: '/blog', label: 'BLOG' },
     { to: '/faq', label: 'FAQ' },
+    { to: '/careers', label: 'CAREERS' },
     { to: '/contact', label: 'CONTACT' },
   ];
 

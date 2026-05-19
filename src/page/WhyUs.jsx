@@ -65,11 +65,11 @@ const WhyUs = ({ limit }) => {
 
   const filters = [
     { key: 'all', label: 'All' },
-    { key: 'commercial', label: 'Commercial' },
-    { key: 'domestic', label: 'Domestic' },
-    { key: 'events', label: 'Events' },
     { key: 'industries', label: 'Industries' },
-    { key: 'eventBro', label: 'Event Brochure' },
+    { key: 'commercial', label: 'Commercial' },
+    { key: 'events', label: 'Events' },
+    // { key: 'domestic', label: 'Domestic' },
+    // { key: 'eventBro', label: 'Event Brochure' },
   ];
 
   // Get images for active filter

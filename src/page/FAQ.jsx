@@ -37,7 +37,7 @@ const faqData = [
     category: "Technical",
     question: "How long will my solar system last?",
     answer:
-      "Most solar panels come with a 25-year power output guarantee and typically last 30-40 years. The guarantee ensures panels will produce at least 80% of their original output after 25 years.",
+      "Most solar panels come with a 30-year power output guarantee and typically last 30-40 years. The guarantee ensures panels will produce at least 80% of their original output after 30 years.",
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const faqData = [
     category: "Financial",
     question: "What is the payback period?",
     answer:
-      "Payback is typically 3-7 years for cash purchases at current rates. As electricity rates increase, payback could be less than 5 years. Financing options can also provide immediate positive cash flow.",
+      "Payback is typically 3-5 years for cash purchases at current rates. As electricity rates increase, payback could be less than 5 years. Financing options can also provide immediate positive cash flow.",
   },
   {
     id: 8,
@@ -65,7 +65,7 @@ const faqData = [
     category: "Financial",
     question: "What does a solar PV system cost?",
     answer:
-      "The installed cost depends on roof type, system size, module type, and mounting method. Grid-tie solar power plants now start around ₹70 per watt. We provide detailed quotes based on your specific requirements.",
+      "The installed cost depends on roof type, system size, module type, and mounting method. Grid-tie solar power plants now start from 25 to 70 per kw. We provide detailed quotes based on your specific requirements.",
   },
   {
     id: 10,

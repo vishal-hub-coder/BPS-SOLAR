@@ -261,7 +261,7 @@ const ContactUS = () => {
     >
       <option value="">Select Service Type</option>
       <option value="installation">On Grid System</option>
-      <option value="maintenance">Off Grid System</option>
+      {/* <option value="maintenance">Off Grid System</option> */}
       <option value="consultation">Hybrid System</option>
       <option value="other">Other</option>
     </select>

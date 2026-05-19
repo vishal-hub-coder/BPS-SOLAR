@@ -44,11 +44,11 @@ const services = [
   },
   {
     id: 5,
-    title: "Off-Grid Solar Power System",
+    title: "Ground Mounted System",
     description:
-      "An off-grid system is not connected to the electricity grid and therefore requires battery storage.",
+      "An Ground Mounted System is not connected to the electricity grid and therefore requires battery storage.",
     image: serv5,
-    slug: "off-grid-solar",
+    slug: "ground-mounted-solar",
   },
   {
     id: 6,
